@@ -3,6 +3,6 @@
 This project is a web-based dashboard built for WEB-115 to demonstrate interactive JavaScript features.
 
 ## TODO: Future Enhancements
-- [ ] Add a metric conversion tool.
-- [ ] Integrate a task list with array storage.
-- [ ] Add JavaScript logic for a live clock.
+- [ ] Add color and style 
+- [ ] Integrate a list of tasks.
+- [ ] Add JavaScript logic for today's date.
