@@ -5,7 +5,7 @@ function weeklyGoal(userName, dailyGoal, bonusTasks) {
     const totalGoal = weeklyGoalCount + Number(bonusTasks);
 
     //assign output to variable
-    const output = "User:" + userName + "<br>" + "Total Weekly Goal: " + totalGoal;
+    const output = `User: ${userName}<br>Total Weekly Goal: ${totalGoal}`;
     
     //update innerHTML
     document.getElementById("goal-message").innerHTML = output;
