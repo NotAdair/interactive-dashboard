@@ -14,12 +14,16 @@ and additional bonus tasks. By capturing user input through a web form and proce
 with a JavaScript function, the dashboard computes and displays both the base 
 5 day workload and the total weekly target directly on the page.
 
+<<<<<<< HEAD
 ## Imperial/Metric Converter
 This application converts measurements between US Imperial and Metric system, supporting inches, feet, yards, miles, centimeters, meters, and kilometers.
 
 
 ## Logic and Pseudocode
 BEGIN
+=======
+<!-- BEGIN
+>>>>>>> a222ce5e1de5788639f00ef339e3c47f2c6d3963
     INPUT input_value
     INPUT conversion_type
 
@@ -50,4 +54,8 @@ BEGIN
     ELSE
         DISPLAY "Invalid conversion type selected."
     ENDIF
+<<<<<<< HEAD
 END
+=======
+END -->
+>>>>>>> a222ce5e1de5788639f00ef339e3c47f2c6d3963
