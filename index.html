@@ -44,6 +44,33 @@
                 <script src="js/task-manager.js"></script>
 
             </div>
+            <div class="col" id="metric-converter">
+                <h2>Imperial/Metric Converter</h2>
+                <form id="converter-form">
+                    <div>
+                        <label for="val-input">Value:</label>
+                        <input type="number" id="val-input" step="any" placeholder="Enter number" required>
+                    </div>
+                    <div>
+                        <label for="conversion-select">Conversion Type:</label>
+                        <select id="conversion-select">
+                            <option value="in-to-cm">Inches (in) to Centimeters (cm)</option>
+                            <option value="ft-to-cm">Feet (ft) to Centimeters (cm)</option>
+                            <option value="yd-to-m">Yards (yd) to Meters (m)</option>
+                            <option value="mi-to-km">Miles (mi) to Kilometers (km)</option>
+                            <option value="cm-to-in">Centimeters (cm) to Inches (in)</option>
+                            <option value="cm-to-ft">Centimeters (cm) to Feet (ft)</option>
+                            <option value="m-to-yd">Meters (m) to Yards (yd)</option>
+                            <option value="km-to-mi">Kilometers (km) to Miles (mi)</option>
+                        </select>
+                    </div>
+                    <button type="button" id="convert-btn">Convert</button>
+                </form>
+                <!-- output -->
+                <div id="converter-result"></div>
+                <!-- linked script-->
+                <script src="js/metric-converter.js" defer></script>
+            </div>
         </div>
      </div>
 </body>
