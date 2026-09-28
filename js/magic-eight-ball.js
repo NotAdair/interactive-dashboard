@@ -1,13 +1,13 @@
 // Put your JavaScript code in this file
 const answers = [
-    "It is certain.",
+    "Yes.",
     "Without a doubt.",
-    "You may rely on it.",
-    "Reply hazy, try again.",
-    "Ask again later.",
-    "Don't count on it.",
-    "My reply is no.",
-    "Very doubtful."
+    "No.",
+    "Not really",
+    "Perhaps",
+    "Sometimes.",
+    "Yeah.",
+    "Perchance."
 ];
 
 function displayAnswer() {
