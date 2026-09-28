@@ -51,3 +51,6 @@ BEGIN
         DISPLAY "Invalid conversion type selected."
     ENDIF
 END
+
+## Magic Eight Ball
+An interactive Magic Eight Ball component built with HTML, CSS, and JavaScript DOM manipulation.
