@@ -1,6 +1,7 @@
 
 // Global array to track tasks
 let myTasks = [];
+let nextId = 1;
 
 //Create the <ul> element, assign an ID, and append to task_list
 const taskListDiv = document.getElementById("task-list");
@@ -35,6 +36,51 @@ document.getElementById("goal-btn").addEventListener("click", function(event) {
     weeklyGoal(userName, dailyGoal, bonusTasks);
 });
 
+function renderTasks() {
+    userTasksUl.innerHTML = "";
+
+    myTasks.forEach(task => {
+        const listItem = document.createElement("li");
+        
+        // Task text span to apply styling
+        const taskSpan = document.createElement("span");
+        taskSpan.textContent = `${task.name} [Priority: ${task.priority}]`;
+
+        // Visual style
+        if (task.isCompleted) {
+            taskSpan.style.textDecoration = "line-through";
+        }
+
+        if (task.isImportant) {
+            taskSpan.style.color = "red";
+        }
+
+        // Complete / Toggle button
+        const completeBtn = document.createElement("button");
+        completeBtn.textContent = task.isCompleted ? "Unmark" : "Complete";
+        completeBtn.onclick = function() {
+            task.isCompleted = !task.isCompleted;
+            console.log(JSON.stringify(myTasks));
+            renderTasks();
+        };
+
+        // Delete individual task button
+        const deleteBtn = document.createElement("button");
+        deleteBtn.textContent = "Delete";
+        deleteBtn.onclick = function() {
+            myTasks = myTasks.filter(t => t.id !== task.id);
+            // Log update
+            console.log(JSON.stringify(myTasks));
+            renderTasks();
+        };
+
+        listItem.appendChild(taskSpan);
+        listItem.appendChild(completeBtn);
+        listItem.appendChild(deleteBtn);
+        userTasksUl.appendChild(listItem);
+    });
+}
+
 document.getElementById("add-task").addEventListener("click", function(event) {
     event.preventDefault();
 
@@ -42,18 +88,38 @@ document.getElementById("add-task").addEventListener("click", function(event) {
     const taskInput = document.getElementById("task-name");
     const taskValue = taskInput.value.trim();
 
-    if (taskValue !== "") {
+    const priorityInput = document.getElementById("task-priority");
+    const importantInput = document.getElementById("task-important");
+if (taskValue !== "") {
+        // Create a task object
+        const newTask = {
+            id: nextId++,
+            name: taskValue,
+            priority: priorityInput ? priorityInput.value : "High",
+            isImportant: importantInput ? importantInput.checked : false,
+            isCompleted: false
+        };
+
         // Add to the global array
-        myTasks.push(taskValue);
+        myTasks.push(newTask);
 
-        // Create a new list item element
-        const listItem = document.createElement("li");
-        listItem.textContent = taskValue;
+        // Log full task list
+        console.log(JSON.stringify(myTasks));
 
-        // Append the <li> to <ul>
-        userTasksUl.appendChild(listItem);
+        renderTasks();
 
-        // Clear the input field for the next task
+        // Clear the input field
         taskInput.value = "";
+        if (importantInput) importantInput.checked = false;
     }
 });
+const deleteListBtn = document.getElementById("delete-list-btn");
+if (deleteListBtn) {
+    deleteListBtn.addEventListener("click", function(event) {
+        event.preventDefault();
+        myTasks = [];
+        // Log updated empty array
+        console.log(JSON.stringify(myTasks));
+        renderTasks();
+    });
+}

@@ -45,7 +45,20 @@
                     <form>
                         <label for="task-name">Enter task:</label>
                         <input type="text" id="task-name">
+                        <div>
+                            <label for="task-priority">Priority:</label>
+                            <select id="task-priority">
+                                <option value="High">High</option>
+                                <option value="Medium">Medium</option>
+                                <option value="Low">Low</option>
+                            </select>
+                        </div>
+                        <div>
+                            <input type="checkbox" id="task-important">
+                            <label for="task-important">Mark as Important</label>
+                        </div>
                         <button type="button" id="add-task">Add Task</button>
+                        <button type="button" id="delete-list-btn">Delete List</button>
                     </form>
                 </div>
 
